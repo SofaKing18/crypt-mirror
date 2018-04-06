@@ -13,7 +13,7 @@ config :logger, level: :warn
 config :rocket_crypt, RocketCrypt.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
+  password: "",
   database: "rocket_crypt_test",
-  hostname: "localhost",
+  hostname: "postgres",
   pool: Ecto.Adapters.SQL.Sandbox

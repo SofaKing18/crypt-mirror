@@ -1,8 +1,8 @@
-defmodule RocketCryptWeb.UserSocket do
+defmodule RocketCryptWeb.AdminSocket do
   use Phoenix.Socket
 
   ## Channels
-  channel("crypt_rate_*", RocketCryptWeb.RateChannel)
+  channel("rate_fixation", RocketCryptWeb.AdminChannel)
 
   ## Transports
   transport(:websocket, Phoenix.Transports.WebSocket)

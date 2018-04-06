@@ -26,13 +26,13 @@ defmodule RocketCryptWeb.ConnCase do
     end
   end
 
-
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(RocketCrypt.Repo)
+
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(RocketCrypt.Repo, {:shared, self()})
     end
+
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
-
 end

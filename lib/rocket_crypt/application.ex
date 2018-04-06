@@ -10,8 +10,12 @@ defmodule RocketCrypt.Application do
     children = [
       # Start the Ecto repository
       supervisor(RocketCrypt.Repo, []),
+      # socket broadcaster 
+      worker(RocketCrypt.Sync.Broadcaster, []),
+      # job for rates sync
+      worker(RocketCrypt.Sync, []),
       # Start the endpoint when the application starts
-      supervisor(RocketCryptWeb.Endpoint, []),
+      supervisor(RocketCryptWeb.Endpoint, [])
       # Start your own worker by calling: RocketCrypt.Worker.start_link(arg1, arg2, arg3)
       # worker(RocketCrypt.Worker, [arg1, arg2, arg3]),
     ]
